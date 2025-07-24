@@ -14,7 +14,7 @@ const nextConfig = {
               "style-src 'self' 'unsafe-inline'",
               "img-src * 'self' data:",
               "font-src 'self'",
-              "connect-src 'self' https://formsubmit.co", // Allow connections to FormSubmit
+              "connect-src 'self' https://api.web3forms.com/submit", 
             ].join('; '),
           },
           // Other Security Headers

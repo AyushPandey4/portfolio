@@ -48,7 +48,7 @@ A modern, responsive portfolio website built with Next.js and TailwindCSS, featu
 - **Animations**: Framer Motion
 - **Icons**: React Icons
 - **Deployment**: Vercel
-- **Form Handling**: FormSubmit
+- **Form Handling**: Web3Forms
 - **Particles**: tsParticles
 - **Smooth Scroll**: Lenis
 
@@ -106,7 +106,7 @@ This project is open source and available under the [MIT License](LICENSE).
 - [Framer Motion](https://www.framer.com/motion/) for animations
 - [TailwindCSS](https://tailwindcss.com/) for styling
 - [React Icons](https://react-icons.github.io/react-icons/) for icons
-- [FormSubmit](https://formsubmit.co/) for form handling
+- [Web3Forms](https://web3forms.com/) for form handling
 - [tsParticles](https://particles.js.org/) for particle effects
 - [Studio Freight](https://github.com/studio-freight/lenis) for smooth scrolling
 

@@ -32,15 +32,20 @@ const SocialLink = ({ href, icon: Icon, label, color, isResume = false }) => (
 
 const Contact = () => {
   const [copied, setCopied] = useState(false);
-  const [formStatus, setFormStatus] = useState({ isSubmitting: false, isSubmitted: false });
+  const [formStatus, setFormStatus] = useState({
+    isSubmitting: false,
+    isSubmitted: false,
+    error: null
+  });
   const email = process.env.NEXT_PUBLIC_EMAIL;
+  const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY; 
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -50,36 +55,51 @@ const Contact = () => {
       return;
     }
 
-    setFormStatus({ isSubmitting: true, isSubmitted: false });
-    
-    const form = e.target;
-    const formData = new FormData(form);
-    const formObject = Object.fromEntries(formData.entries());
-    formObject._subject = `Portfolio Contact: ${formObject.subject}`;
+    setFormStatus({ isSubmitting: true, isSubmitted: false, error: null });
     
     try {
-      const response = await fetch(`https://formsubmit.co/ajax/${email}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify(formObject),
-      });
-      
-      const data = await response.json();
+      const formData = new FormData(e.target);
+      const formObject = Object.fromEntries(formData.entries());
 
-      if (data.success === "true" || response.ok) {
-        setFormStatus({ isSubmitting: false, isSubmitted: true });
-        form.reset();
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          name: formObject.name,
+          email: formObject.email,
+          subject: formObject.subject,
+          message: formObject.message,
+          from_name: "Portfolio Contact Form",
+          replyto: formObject.email,
+        }),
+      });
+
+      const result = await response.json();
+      
+      if (result.success) {
+        setFormStatus({ 
+          isSubmitting: false, 
+          isSubmitted: true, 
+          error: null 
+        });
+        e.target.reset();
         localStorage.setItem('lastSubmission', Date.now().toString());
         alert('Thank you for your message! I will get back to you soon.');
       } else {
-        throw new Error(data.message || 'Form submission failed. Please try again.');
+        throw new Error(result.message || 'Failed to send message. Please try again.');
       }
     } catch (error) {
+      console.error('Form submission error:', error);
+      setFormStatus({ 
+        isSubmitting: false, 
+        isSubmitted: false, 
+        error: error.message 
+      });
       alert(`Sorry, there was an error: ${error.message}`);
-      setFormStatus({ isSubmitting: false, isSubmitted: false });
     }
   };
   
@@ -179,9 +199,6 @@ const Contact = () => {
             <h3 className="text-xl text-gray-200 font-medium mb-6">Send Me a Message</h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
-              <input type="text" name="_honey" style={{ display: 'none' }} />
-              <input type="hidden" name="_captcha" value="false" />
-
               <div>
                 <input
                   type="text"
@@ -221,10 +238,11 @@ const Contact = () => {
               <motion.button
                 type="submit"
                 disabled={formStatus.isSubmitting}
-                className={`w-full font-medium rounded-full py-3 px-6 transition-all duration-300 shadow-lg ${formStatus.isSubmitting
+                className={`w-full font-medium rounded-full py-3 px-6 transition-all duration-300 shadow-lg ${
+                  formStatus.isSubmitting
                     ? 'bg-gray-400 cursor-not-allowed'
                     : 'bg-cyan-400 hover:bg-cyan-300 shadow-cyan-400/20'
-                  } text-black`}
+                } text-black`}
               >
                 {formStatus.isSubmitting ? 'Sending...' : 'Send Message'}
               </motion.button>
