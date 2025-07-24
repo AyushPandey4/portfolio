@@ -88,7 +88,7 @@ A modern, responsive portfolio website built with Next.js and TailwindCSS, featu
 
 ## 🌐 Deployment
 
-The site is deployed on Vercel. You can visit it at [https://ayushportfolio-taupe.vercel.app/](https://ayushportfolio-taupe.vercel.app/)
+The site is deployed on Vercel. You can visit it at [https://ayushpandeyportfolio.vercel.app/](https://ayushpandeyportfolio.vercel.app/)
 
 ## 📝 License
 
@@ -96,7 +96,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 🤝 Contact
 
-- Portfolio: [https://ayushportfolio-taupe.vercel.app/](https://ayushportfolio-taupe.vercel.app/)
+- Portfolio: [https://ayushpandeyportfolio.vercel.app/](https://ayushpandeyportfolio.vercel.app/)
 - Twitter: [@ayush130206](https://twitter.com/ayush130206)
 - LinkedIn: [Your LinkedIn]
 - GitHub: [Your GitHub]
