@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 const title = "Ayush Pandey – Backend & Full-Stack Developer";
 const description = "Portfolio of Ayush Pandey, a developer focused on building scalable backend systems and full-stack applications with modern technologies like Node.js, Next.js, and AWS.";
-const url = "https://ayushportfolio-taupe.vercel.app/";
+const url = "https://ayushpandeyportfolio.vercel.app/";
 
 const jsonLd = {
   "@context": "https://schema.org",

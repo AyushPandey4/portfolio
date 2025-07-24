@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Specify the location of the sitemap for all user agents
-Sitemap: https://ayushportfolio-taupe.vercel.app/sitemap.xml 
+Sitemap: https://ayushpandeyportfolio.vercel.app/sitemap.xml 
