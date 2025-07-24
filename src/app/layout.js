@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/Lenis";
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -106,6 +107,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <SmoothScrollProvider>
           {children}
+          <Analytics />
         </SmoothScrollProvider>
       </body>
     </html>
