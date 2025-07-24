@@ -16,8 +16,8 @@ const SocialLink = ({ href, icon: Icon, label, color, isResume = false }) => (
     whileTap={{ scale: 0.95 }}
   >
     <div className={`p-3 rounded-full ${isResume
-        ? 'bg-gradient-to-r from-cyan-500 to-blue-500 relative'
-        : 'bg-[#1a1a1a] group-hover:' + color
+      ? 'bg-gradient-to-r from-cyan-500 to-blue-500 relative'
+      : 'bg-[#1a1a1a] group-hover:' + color
       } transition-colors duration-300`}>
       <Icon className={`w-5 h-5 ${isResume ? 'text-white' : ''}`} />
       {isResume && (
@@ -40,47 +40,49 @@ const Contact = () => {
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     
     const lastSubmission = localStorage.getItem('lastSubmission');
-    if (lastSubmission && Date.now() - Number(lastSubmission) < 60000) { // 1 minute cooldown
-      alert('You are submitting too frequently. Please wait a minute before sending another message.');
+    if (lastSubmission && Date.now() - Number(lastSubmission) < 60000) {
+      alert('Please wait a minute before sending another message.');
       return;
     }
 
     setFormStatus({ isSubmitting: true, isSubmitted: false });
-
-    const formData = new FormData(e.target);
-    formData.append('_subject', formData.get('subject') || 'New Contact Form Submission!');
-    formData.append('_template', 'table');
+    
+    const form = e.target;
+    const formData = new FormData(form);
+    const formObject = Object.fromEntries(formData.entries());
+    formObject._subject = `Portfolio Contact: ${formObject.subject}`;
     
     try {
-      const response = await fetch('https://formsubmit.co/ajax/' + email, {
+      const response = await fetch(`https://formsubmit.co/ajax/${email}`, {
         method: 'POST',
-        body: formData,
         headers: {
-          'Accept': 'application/json'
-        }
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(formObject),
       });
+      
+      const data = await response.json();
 
-      if (response.ok) {
+      if (data.success === "true" || response.ok) {
         setFormStatus({ isSubmitting: false, isSubmitted: true });
+        form.reset();
+        localStorage.setItem('lastSubmission', Date.now().toString());
         alert('Thank you for your message! I will get back to you soon.');
-        e.target.reset(); // Clear form fields
-        localStorage.setItem('lastSubmission', Date.now().toString()); // Set submission timestamp
       } else {
-        throw new Error('Form submission failed');
+        throw new Error(data.message || 'Form submission failed. Please try again.');
       }
     } catch (error) {
-      console.error('Form submission error:', error);
-      alert('Sorry, there was an error submitting the form. Please try again later.');
+      alert(`Sorry, there was an error: ${error.message}`);
       setFormStatus({ isSubmitting: false, isSubmitted: false });
     }
   };
-
+  
   const socialLinks = [
     {
       href: process.env.NEXT_PUBLIC_RESUME_URL,
@@ -175,13 +177,11 @@ const Contact = () => {
             className="bg-[#1a1a1a] rounded-2xl p-6 md:p-8"
           >
             <h3 className="text-xl text-gray-200 font-medium mb-6">Send Me a Message</h3>
+            
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* 2. Honeypot Field */}
               <input type="text" name="_honey" style={{ display: 'none' }} />
+              <input type="hidden" name="_captcha" value="false" />
 
-              {/* Security settings for FormSubmit */}
-              <input type="hidden" name="_captcha" value="true" />
-              
               <div>
                 <input
                   type="text"
@@ -221,13 +221,10 @@ const Contact = () => {
               <motion.button
                 type="submit"
                 disabled={formStatus.isSubmitting}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className={`w-full font-medium rounded-full py-3 px-6 transition-all duration-300 shadow-lg ${
-                  formStatus.isSubmitting
+                className={`w-full font-medium rounded-full py-3 px-6 transition-all duration-300 shadow-lg ${formStatus.isSubmitting
                     ? 'bg-gray-400 cursor-not-allowed'
                     : 'bg-cyan-400 hover:bg-cyan-300 shadow-cyan-400/20'
-                } text-black`}
+                  } text-black`}
               >
                 {formStatus.isSubmitting ? 'Sending...' : 'Send Message'}
               </motion.button>

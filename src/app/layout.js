@@ -12,7 +12,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Ayush Pandey",
-  "url": "https://ayushportfolio-taupe.vercel.app/",
+  "url": url,
   "sameAs": [
     process.env.NEXT_PUBLIC_LINKEDIN_URL,
     process.env.NEXT_PUBLIC_GITHUB_URL,
@@ -31,31 +31,40 @@ export const metadata = {
     template: `%s | Ayush Pandey`,
   },
   description: description,
+  metadataBase: new URL(url),
   keywords: ["Ayush Pandey", "Backend Developer", "Full-Stack Developer", "Node.js", "Next.js", "React", "AWS", "Portfolio"],
   creator: "Ayush Pandey",
+  
+  // Open Graph
   openGraph: {
+    type: "website",
+    url: url,
     title: title,
     description: description,
-    url: url,
     siteName: "Ayush Pandey's Portfolio",
-    images: [
-      {
-        url: `${url}/og-image.png`,
-        width: 1200,
-        height: 630,
-        alt: "Ayush Pandey - Developer Portfolio",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
+    images: [{
+      url: "/og-image.png",
+      width: 1200,
+      height: 630,
+      alt: "Ayush Pandey - Developer Portfolio"
+    }]
   },
+
+  // Twitter
   twitter: {
     card: "summary_large_image",
+    site: "@ayush130206",
+    creator: "@ayush130206",
     title: title,
     description: description,
-    images: [`${url}/twitter-image.jpg`],
-    creator: "@ayush130206",
+    images: ["/og-image.png"]
   },
+
+  // Verification and other meta tags
+  // verification: {
+  //   google: "your-google-verification-code", 
+  // },
+  
   robots: {
     index: true,
     follow: true,
@@ -67,10 +76,21 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
-  metadataBase: new URL(url),
+
+ 
   alternates: {
-    canonical: "/",
+    canonical: url,
   },
+
+  // Icons
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+
+  // Manifest
+  // manifest: "/site.webmanifest", 
 };
 
 export default function RootLayout({ children }) {
@@ -81,6 +101,7 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <meta property="twitter:domain" content="ayushportfolio-taupe.vercel.app" />
       </head>
       <body className={inter.className}>
         <SmoothScrollProvider>
