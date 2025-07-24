@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ayushportfolio.dev/</loc>
+    <loc>https://ayushportfolio-taupe.vercel.app/</loc>
     <lastmod>2025-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ayushportfolio.dev/#about</loc>
+    <loc>https://ayushportfolio-taupe.vercel.app/#about</loc>
     <lastmod>2025-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ayushportfolio.dev/#projects</loc>
+    <loc>https://ayushportfolio-taupe.vercel.app/#projects</loc>
     <lastmod>2025-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ayushportfolio.dev/#stats</loc>
+    <loc>https://ayushportfolio-taupe.vercel.app/#stats</loc>
     <lastmod>2025-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ayushportfolio.dev/#skills</loc>
+    <loc>https://ayushportfolio-taupe.vercel.app/#skills</loc>
     <lastmod>2025-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ayushportfolio.dev/#contact</loc>
+    <loc>https://ayushportfolio-taupe.vercel.app/#contact</loc>
     <lastmod>2025-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

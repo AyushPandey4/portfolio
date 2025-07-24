@@ -6,13 +6,13 @@ const inter = Inter({ subsets: ["latin"] });
 
 const title = "Ayush Pandey – Backend & Full-Stack Developer";
 const description = "Portfolio of Ayush Pandey, a developer focused on building scalable backend systems and full-stack applications with modern technologies like Node.js, Next.js, and AWS.";
-const url = "https://your-domain.com"; 
+const url = "https://ayushportfolio-taupe.vercel.app/";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Ayush Pandey",
-  "url": "https://your-domain.com", 
+  "url": "https://ayushportfolio-taupe.vercel.app/",
   "sameAs": [
     process.env.NEXT_PUBLIC_LINKEDIN_URL,
     process.env.NEXT_PUBLIC_GITHUB_URL,
@@ -40,7 +40,7 @@ export const metadata = {
     siteName: "Ayush Pandey's Portfolio",
     images: [
       {
-        url: `${url}/og-image.jpg`,
+        url: `${url}/og-image.png`,
         width: 1200,
         height: 630,
         alt: "Ayush Pandey - Developer Portfolio",
@@ -53,8 +53,8 @@ export const metadata = {
     card: "summary_large_image",
     title: title,
     description: description,
-    images: [`${url}/twitter-image.jpg`], 
-    creator: "@yourTwitterHandle", 
+    images: [`${url}/twitter-image.jpg`],
+    creator: "@ayush130206",
   },
   robots: {
     index: true,
