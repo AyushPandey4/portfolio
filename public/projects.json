@@ -1,0 +1,168 @@
+[
+  {
+    "id": "js-redis",
+    "title": "JSRedis – High-Performance Redis Clone & Dashboard",
+    "description": "A fully-featured, Redis-compatible server built from scratch in Node.js, featuring advanced data structures, master-replica replication, and a real-time observability dashboard built with React.",
+    "image": "/images/js-redis.png",
+    "techStack": [
+      { "icon": "SiNodedotjs", "label": "Node.js" },
+      { "icon": "SiReact", "label": "React" },
+      { "icon": "SiDocker", "label": "Docker" },
+      { "icon": "SiTailwindcss", "label": "Tailwind CSS" },
+      { "icon": "SiRecharts", "label": "Recharts" },
+      { "icon": "SiJest", "label": "Jest" }
+    ],
+    "features": [
+      "Multi-client TCP server with RESP protocol support",
+      "AOF persistence and TTL-based key expiration",
+      "LRU eviction policy for memory management",
+      "Master-replica replication with real-time updates",
+      "Interactive terminal via @xterm/xterm",
+      "Live key browser and metrics dashboard with WebSockets",
+      "Full containerization using Docker Compose"
+    ],
+    "demo": "https://jsredis-project-ui.vercel.app/",
+    "github": "https://github.com/AyushPandey4/jsredis-project"
+  },
+  {
+    "id": "deploy-now",
+    "title": "DeployNow – Automated Cloud Deployment Platform",
+    "description": "Platform to deploy Dockerized apps to AWS ECS using GitHub OAuth, BullMQ, Redis, and ClickHouse for full-stack cloud automation.",
+    "image": "/images/deploy-now.png",
+    "techStack": [
+      { "icon": "SiNodedotjs", "label": "Node.js" },
+      { "icon": "SiExpress", "label": "Express.js" },
+      { "icon": "SiSupabase", "label": "Supabase" },
+      { "icon": "FaAws", "label": "AWS ECS" },
+      { "icon": "SiDocker", "label": "Docker" },
+      { "icon": "SiRedis", "label": "Redis (BullMQ)" },
+      { "icon": "SiClickhouse", "label": "ClickHouse" }
+    ],
+    "features": [
+      "GitHub OAuth integration for project access",
+      "Automated Docker builds & AWS ECS deployments",
+      "Redis-powered job queues for multi-project concurrency",
+      "ClickHouse logs & searchable deployment history",
+      "Supabase DB for scalable metadata storage"
+    ],
+    "demo": "https://deploy-now-lime.vercel.app/",
+    "github": "https://github.com/AyushPandey4/DeployNow"
+  },
+  {
+    "id": "code-reflex",
+    "title": "CodeReflex – AI-Powered Interview Simulator",
+    "description": "Interactive interview simulator using OpenAI, face detection, and voice I/O to replicate real-time tech interview scenarios.",
+    "image": "/images/code-reflex.png",
+    "techStack": [
+      { "icon": "SiNextdotjs", "label": "Next.js" },
+      { "icon": "SiSupabase", "label": "Supabase" },
+      { "icon": "SiOpenai", "label": "OpenAI API" }
+    ],
+    "features": [
+      "Auto-generated DSA & system design challenges",
+      "AI-based feedback on answers",
+      "Face API for behavior analysis",
+      "Audio input/output mock interviews",
+      "Session tracking and analytics"
+    ],
+    "demo": "https://code-reflex.vercel.app/",
+    "github": "https://github.com/AyushPandey4/CodeReflix"
+  },
+  {
+    "id": "learn-loop",
+    "title": "LearnLoop – YouTube Learning Tracker",
+    "description": "Full-stack tool to track YouTube learning with note-taking, playlist automation, and content categorization.",
+    "image": "/images/learn-loop.png",
+    "techStack": [
+      { "icon": "SiNextdotjs", "label": "Next.js" },
+      { "icon": "SiNodedotjs", "label": "Node.js" },
+      { "icon": "SiMongodb", "label": "MongoDB" },
+      { "icon": "SiRedis", "label": "Redis" },
+      { "icon": "SiYoutube", "label": "YouTube API" },
+      { "icon": "SiGoogle", "label": "Google OAuth" }
+    ],
+    "features": [
+      "Video-level note taking with synced timestamp",
+      "Google OAuth with JWT session auth",
+      "Realtime content dashboard with Redis caching",
+      "Automated playlist management",
+      "Category-based learning filters"
+    ],
+    "demo": "https://learn-loop-nine.vercel.app/",
+    "github": "https://github.com/AyushPandey4/LearnLoop"
+  },
+  {
+    "id": "write-flow",
+    "title": "WriteFlow – AI-Integrated Blogging Platform",
+    "description": "Scalable blogging platform with AI-generated content, rich media, analytics, and secure publishing.",
+    "image": "/images/write-flow.png",
+    "techStack": [
+      { "icon": "SiNextdotjs", "label": "Next.js 15" },
+      { "icon": "SiSupabase", "label": "Supabase" },
+      { "icon": "SiClerk", "label": "Clerk" },
+      { "icon": "SiCloudinary", "label": "Cloudinary" },
+      { "icon": "SiOpenai", "label": "OpenAI API" }
+    ],
+    "features": [
+      "AI blog generation using OpenAI",
+      "Secure Clerk auth + rich blog editing",
+      "Public/private blogs with likes & bookmarks",
+      "Supabase search with category filters",
+      "In-app analytics dashboard with blog insights"
+    ],
+    "demo": "https://write-flow-wine.vercel.app/",
+    "github": "https://github.com/AyushPandey4/WriteFlow"
+  },
+  {
+    "id": "thread-vibe",
+    "title": "ThreadVibe – AI-Powered Blog Post Generator",
+    "description": "Transform social media threads into engaging blog posts with AI-powered style adaptation. Choose your vibe, generate SEO metadata, and get an AI image prompt for your blog cover—all with a modern, beautiful UI.",
+    "image": "/images/thread-vibe.png",
+    "techStack": [{ "icon": "SiNextdotjs", "label": "Next.js" }],
+    "features": [
+      "Modern UI: Glassmorphism, gradients, smooth animations, responsive design",
+      "Vibe selection for tone/style of blog post",
+      "Automatic SEO metadata generation",
+      "AI image prompt generation for blog covers",
+      "Copy/download posts in Markdown format",
+      "Share to multiple platforms (Hashnode, Medium, Dev.to, Ghost, Notion, WordPress)",
+      "Animated toast notifications for actions/errors"
+    ],
+    "demo": "https://threadvibe.vercel.app/",
+    "github": "https://github.com/AyushPandey4/ThreadVibe"
+  },
+  {
+    "id": "link-hub",
+    "title": "LinkHub – Personal Link Management & Analytics",
+    "description": "A Linktree clone where users can manage their links, promote their brand, and track analytics—all for free.",
+    "image": "/images/link-hub.png",
+    "techStack": [{ "icon": "SiNextdotjs", "label": "Next.js" }],
+    "features": [
+      "Manage and organize personal links",
+      "Track clicks and engagement analytics",
+      "Customizable UI for brand promotion",
+      "Free to use for everyone"
+    ],
+    "demo": "https://link-hub-beta.vercel.app/",
+    "github": "http://github.com/AyushPandey4/LinkHub"
+  },
+  {
+    "id": "movie-cloud",
+    "title": "MovieCloud – Movie Search & Watchlist App",
+    "description": "Web application built using React and Vite, allowing users to search for movies, view movie details, and manage their watchlist and favorites.",
+    "image": "/images/movie-cloud.png",
+    "techStack": [
+      { "icon": "SiReact", "label": "React" },
+      { "icon": "SiRedux", "label": "Redux" }
+    ],
+    "features": [
+      "Search for movies by name",
+      "View detailed movie information (posters, genres, release date, rating, etc.)",
+      "Manage watchlist and favorites",
+      "Responsive design with Tailwind CSS",
+      "Fetches data from TMDb API"
+    ],
+    "demo": "https://moviecloud-ayush.netlify.app/",
+    "github": "https://github.com/AyushPandey4/MovieCloud"
+  }
+]

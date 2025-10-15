@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import React from "react";
+import { motion } from "framer-motion";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import {
   SiNodedotjs,
   SiExpress,
@@ -15,9 +15,13 @@ import {
   SiGoogle,
   SiClerk,
   SiCloudinary,
+  SiJest,
+  SiReact,
+  SiTailwindcss,
+  SiRecharts,
 } from "react-icons/si";
 import { FaAws } from "react-icons/fa";
-import SectionDivider from '../SectionDivider';
+import SectionDivider from "../SectionDivider";
 
 const TechBadge = ({ icon: Icon, label }) => {
   if (!Icon) return null;
@@ -32,6 +36,19 @@ const TechBadge = ({ icon: Icon, label }) => {
     </motion.div>
   );
 };
+
+const MoreProjectCard = () => (
+  <motion.a
+    href="/projects"
+    rel="noopener noreferrer"
+    className="inline-flex items-center space-x-2 px-6 py-3 bg-cyan-400 text-black rounded-full text-base font-medium hover:bg-cyan-300 transition-colors duration-300"
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+  >
+    <span>View All Projects</span>
+    <FaExternalLinkAlt size={12} />
+  </motion.a>
+);
 
 const ProjectCard = ({ project }) => {
   return (
@@ -59,9 +76,7 @@ const ProjectCard = ({ project }) => {
         <div className="relative lg:w-1/2 p-6 lg:p-8">
           <div className="space-y-6">
             {/* Title */}
-            <motion.h3
-              className="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-300"
-            >
+            <motion.h3 className="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-300">
               {project.title}
               <div className="h-0.5 w-0 group-hover:w-full bg-cyan-400 transition-all duration-300" />
             </motion.h3>
@@ -81,7 +96,10 @@ const ProjectCard = ({ project }) => {
             {/* Features */}
             <ul className="space-y-2">
               {project.features.map((feature, index) => (
-                <li key={index} className="flex items-start space-x-2 text-sm lg:text-base">
+                <li
+                  key={index}
+                  className="flex items-start space-x-2 text-sm lg:text-base"
+                >
                   <span className="text-cyan-400 mt-1">▸</span>
                   <span className="text-gray-300">{feature}</span>
                 </li>
@@ -122,8 +140,32 @@ const ProjectCard = ({ project }) => {
   );
 };
 
-
 const projects = [
+  {
+    title: "JSRedis – High-Performance Redis Clone & Dashboard",
+    description:
+      "A fully-featured, Redis-compatible server built from scratch in Node.js, featuring advanced data structures, master-replica replication, and a real-time observability dashboard built with React.",
+    image: "/images/js-redis.png",
+    techStack: [
+      { icon: SiNodedotjs, label: "Node.js" },
+      { icon: SiReact, label: "React" },
+      { icon: SiDocker, label: "Docker" },
+      { icon: SiTailwindcss, label: "Tailwind CSS" },
+      { icon: SiRecharts, label: "Recharts" },
+      { icon: SiJest, label: "Jest" },
+    ],
+    features: [
+      "Multi-client TCP server with RESP protocol support",
+      "AOF persistence and TTL-based key expiration",
+      "LRU eviction policy for memory management",
+      "Master-replica replication with real-time updates",
+      "Interactive terminal via @xterm/xterm",
+      "Live key browser and metrics dashboard with WebSockets",
+      "Full containerization using Docker Compose",
+    ],
+    demo: "https://jsredis-project-ui.vercel.app/",
+    github: "https://github.com/AyushPandey4/jsredis-project",
+  },
   {
     title: "DeployNow – Automated Cloud Deployment Platform",
     description:
@@ -136,17 +178,17 @@ const projects = [
       { icon: FaAws, label: "AWS ECS" },
       { icon: SiDocker, label: "Docker" },
       { icon: SiRedis, label: "Redis (BullMQ)" },
-      { icon: SiClickhouse, label: "ClickHouse" }
+      { icon: SiClickhouse, label: "ClickHouse" },
     ],
     features: [
       "GitHub OAuth integration for project access",
       "Automated Docker builds & AWS ECS deployments",
       "Redis-powered job queues for multi-project concurrency",
       "ClickHouse logs & searchable deployment history",
-      "Supabase DB for scalable metadata storage"
+      "Supabase DB for scalable metadata storage",
     ],
     demo: "https://deploy-now-lime.vercel.app/",
-    github: "https://github.com/AyushPandey4/DeployNow"
+    github: "https://github.com/AyushPandey4/DeployNow",
   },
   {
     title: "CodeReflex – AI-Powered Interview Simulator",
@@ -156,17 +198,17 @@ const projects = [
     techStack: [
       { icon: SiNextdotjs, label: "Next.js" },
       { icon: SiSupabase, label: "Supabase" },
-      { icon: SiOpenai, label: "OpenAI API" }
+      { icon: SiOpenai, label: "OpenAI API" },
     ],
     features: [
       "Auto-generated DSA & system design challenges",
       "AI-based feedback on answers",
       "Face API for behavior analysis",
       "Audio input/output mock interviews",
-      "Session tracking and analytics"
+      "Session tracking and analytics",
     ],
     demo: "https://code-reflex.vercel.app/",
-    github: "https://github.com/AyushPandey4/CodeReflix"
+    github: "https://github.com/AyushPandey4/CodeReflix",
   },
   {
     title: "LearnLoop – YouTube Learning Tracker",
@@ -179,40 +221,18 @@ const projects = [
       { icon: SiMongodb, label: "MongoDB" },
       { icon: SiRedis, label: "Redis" },
       { icon: SiYoutube, label: "YouTube API" },
-      { icon: SiGoogle, label: "Google OAuth" }
+      { icon: SiGoogle, label: "Google OAuth" },
     ],
     features: [
       "Video-level note taking with synced timestamp",
       "Google OAuth with JWT session auth",
       "Realtime content dashboard with Redis caching",
       "Automated playlist management",
-      "Category-based learning filters"
+      "Category-based learning filters",
     ],
     demo: "https://learn-loop-nine.vercel.app/",
-    github: "https://github.com/AyushPandey4/LearnLoop"
+    github: "https://github.com/AyushPandey4/LearnLoop",
   },
-  {
-    title: "WriteFlow – AI-Integrated Blogging Platform",
-    description:
-      "Scalable blogging platform with AI-generated content, rich media, analytics, and secure publishing.",
-    image: "/images/write-flow.png",
-    techStack: [
-      { icon: SiNextdotjs, label: "Next.js 15" },
-      { icon: SiSupabase, label: "Supabase" },
-      { icon: SiClerk, label: "Clerk" },
-      { icon: SiCloudinary, label: "Cloudinary" },
-      { icon: SiOpenai, label: "OpenAI API" }
-    ],
-    features: [
-      "AI blog generation using OpenAI",
-      "Secure Clerk auth + rich blog editing",
-      "Public/private blogs with likes & bookmarks",
-      "Supabase search with category filters",
-      "In-app analytics dashboard with blog insights"
-    ],
-    demo: "https://write-flow-wine.vercel.app/",
-    github: "https://github.com/AyushPandey4/WriteFlow"
-  }
 ];
 
 const Projects = () => {
@@ -240,10 +260,14 @@ const Projects = () => {
             <ProjectCard key={index} project={project} />
           ))}
         </div>
+        {/* More Project Card */}
+        <div className="flex justify-center mt-10">
+          <MoreProjectCard />
+        </div>
       </div>
       <SectionDivider />
     </section>
   );
 };
 
-export default Projects; 
+export default Projects;
