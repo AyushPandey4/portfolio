@@ -23,7 +23,6 @@ import {
   SiDocker,
   SiSupabase,
   SiRedis,
-  SiClickhouse,
   SiHtml5,
   SiCss3
 } from 'react-icons/si';
@@ -166,8 +165,7 @@ const Skills = () => {
         { icon: SiGithub, label: "GitHub" },
         { icon: SiPostman, label: "Postman", subLabel: "API Testing" },
         { icon: SiFigma, label: "Figma", subLabel: "UI Design" },
-        { icon: SiRedis, label: "Upstash Redis" },
-        { icon: SiClickhouse, label: "ClickHouse" },
+        { icon: SiRedis, label: "Redis" },
       ]
     },
   ];

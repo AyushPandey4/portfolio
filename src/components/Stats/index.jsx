@@ -1,11 +1,23 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { SiCodeforces, SiLeetcode, SiCodechef, SiGeeksforgeeks } from 'react-icons/si';
-import { FaExternalLinkAlt, FaStar, FaRegStar } from 'react-icons/fa';
-import Image from 'next/image';
-import SectionDivider from '../SectionDivider';
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  SiCodeforces,
+  SiLeetcode,
+  SiCodechef,
+  SiGeeksforgeeks,
+} from "react-icons/si";
+import { FaExternalLinkAlt, FaStar, FaRegStar } from "react-icons/fa";
+import Image from "next/image";
+import SectionDivider from "../SectionDivider";
 
-const PlatformCard = ({ platform, stats, icon: Icon, customIcon, profileUrl, description }) => {
+const PlatformCard = ({
+  platform,
+  stats,
+  icon: Icon,
+  customIcon,
+  profileUrl,
+  description,
+}) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -37,20 +49,25 @@ const PlatformCard = ({ platform, stats, icon: Icon, customIcon, profileUrl, des
       <div className="space-y-2 mb-6 text-center">
         {stats.map((stat, index) => (
           <div key={index} className="text-gray-300">
-            {stat.type === 'rating' ? (
+            {stat.type === "rating" ? (
               <div className="font-medium">
                 Max Rating: <span className="text-cyan-400">{stat.value}</span>
               </div>
-            ) : stat.type === 'stars' ? (
+            ) : stat.type === "stars" ? (
               <div className="flex items-center justify-center space-x-1">
-                {[...Array(5)].map((_, i) => (
-                  i < stat.value ?
-                    <FaStar key={i} className="text-yellow-400" /> :
+                {[...Array(5)].map((_, i) =>
+                  i < stat.value ? (
+                    <FaStar key={i} className="text-yellow-400" />
+                  ) : (
                     <FaRegStar key={i} className="text-gray-500" />
-                ))}
+                  )
+                )}
               </div>
             ) : (
-              <div className="font-medium">{stat.label}: <span className="text-cyan-400">{stat.value}</span></div>
+              <div className="font-medium">
+                {stat.label}:{" "}
+                <span className="text-cyan-400">{stat.value}</span>
+              </div>
             )}
           </div>
         ))}
@@ -84,9 +101,12 @@ const CodolioCard = () => (
     viewport={{ once: true }}
     className="relative col-span-1 md:col-span-2 lg:col-span-4 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-cyan-500/10 rounded-2xl p-8 text-center group hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300"
   >
-    <h3 className="text-2xl font-bold text-white mb-4">See My Complete CP & DSA Stats</h3>
+    <h3 className="text-2xl font-bold text-white mb-4">
+      See My Complete CP & DSA Stats
+    </h3>
     <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-      View my consolidated competitive programming journey across Codeforces, CodeChef, LeetCode, and GeeksforGeeks on Codolio.
+      View my consolidated competitive programming journey across Codeforces,
+      CodeChef, LeetCode, and GeeksforGeeks on Codolio.
     </p>
     <motion.a
       href="https://codolio.com/profile/dXcs7iuc"
@@ -99,7 +119,9 @@ const CodolioCard = () => (
       <span>View Full Stats</span>
       <FaExternalLinkAlt size={12} />
     </motion.a>
-    <p className="text-gray-400 text-sm mt-4">Real-time stats powered by Codolio</p>
+    <p className="text-gray-400 text-sm mt-4">
+      Real-time stats powered by Codolio
+    </p>
   </motion.div>
 );
 
@@ -109,45 +131,59 @@ const Stats = () => {
       platform: "Codeforces",
       icon: SiCodeforces,
       stats: [
-        { type: 'rating', value: process.env.NEXT_PUBLIC_CODEFORCES_RATING },
-        { label: 'Rank', value: process.env.NEXT_PUBLIC_CODEFORCES_RANK },
-        { label: 'Contests', value: process.env.NEXT_PUBLIC_CODEFORCES_CONTESTS }
+        { type: "rating", value: process.env.NEXT_PUBLIC_CODEFORCES_RATING },
+        { label: "Rank", value: process.env.NEXT_PUBLIC_CODEFORCES_RANK },
+        {
+          label: "Contests",
+          value: process.env.NEXT_PUBLIC_CODEFORCES_CONTESTS,
+        },
       ],
       profileUrl: process.env.NEXT_PUBLIC_CODEFORCES_PROFILE,
-      description: "Focused on solving algorithmic problems and participating in contests."
+      description:
+        "Focused on solving algorithmic problems and participating in contests.",
     },
     {
       platform: "CodeChef",
       icon: SiCodechef,
       stats: [
-        { type: 'rating', value: process.env.NEXT_PUBLIC_CODECHEF_RATING },
-        { type: 'stars', value: process.env.NEXT_PUBLIC_CODECHEF_STARS },
-        { label: 'Contests', value: process.env.NEXT_PUBLIC_CODECHEF_CONTESTS }
+        { type: "rating", value: process.env.NEXT_PUBLIC_CODECHEF_RATING },
+        { type: "stars", value: process.env.NEXT_PUBLIC_CODECHEF_STARS },
+        { label: "Contests", value: process.env.NEXT_PUBLIC_CODECHEF_CONTESTS },
       ],
       profileUrl: process.env.NEXT_PUBLIC_CODECHEF_PROFILE,
-      description: "Regular participant in CodeChef contests."
+      description: "Regular participant in CodeChef contests.",
     },
     {
       platform: "LeetCode",
       icon: SiLeetcode,
       stats: [
-        { label: 'Problems Solved', value: process.env.NEXT_PUBLIC_LEETCODE_PROBLEMS },
-        { label: 'Contest Rating', value: process.env.NEXT_PUBLIC_LEETCODE_RATING },
-        { label: 'Contests', value: process.env.NEXT_PUBLIC_LEETCODE_CONTESTS }
+        {
+          label: "Problems Solved",
+          value: process.env.NEXT_PUBLIC_LEETCODE_PROBLEMS,
+        },
+        { label: "Rank", value: process.env.NEXT_PUBLIC_LEETCODE_RANK },
+        { label: "Contests", value: process.env.NEXT_PUBLIC_LEETCODE_CONTESTS },
       ],
       profileUrl: process.env.NEXT_PUBLIC_LEETCODE_PROFILE,
-      description: "Focused on solving data structure and algorithm challenges."
+      description:
+        "Focused on solving data structure and algorithm challenges.",
     },
     {
       platform: "GeeksforGeeks",
       icon: SiGeeksforgeeks,
       stats: [
-        { label: 'Problems Solved', value: process.env.NEXT_PUBLIC_GFG_PROBLEMS },
-        { label: 'Institute Rank', value: `Top ${process.env.NEXT_PUBLIC_GFG_RANK}` }
+        {
+          label: "Problems Solved",
+          value: process.env.NEXT_PUBLIC_GFG_PROBLEMS,
+        },
+        {
+          label: "Institute Rank",
+          value: `Top ${process.env.NEXT_PUBLIC_GFG_RANK}`,
+        },
       ],
       profileUrl: process.env.NEXT_PUBLIC_GFG_PROFILE,
-      description: "Active in practicing topic-wise problems."
-    }
+      description: "Active in practicing topic-wise problems.",
+    },
   ];
 
   return (
@@ -188,4 +224,4 @@ const Stats = () => {
   );
 };
 
-export default Stats; 
+export default Stats;

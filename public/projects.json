@@ -35,14 +35,13 @@
       { "icon": "SiSupabase", "label": "Supabase" },
       { "icon": "FaAws", "label": "AWS ECS" },
       { "icon": "SiDocker", "label": "Docker" },
-      { "icon": "SiRedis", "label": "Redis (BullMQ)" },
-      { "icon": "SiClickhouse", "label": "ClickHouse" }
+      { "icon": "SiRedis", "label": "Redis (BullMQ)" }
     ],
     "features": [
       "GitHub OAuth integration for project access",
       "Automated Docker builds & AWS ECS deployments",
       "Redis-powered job queues for multi-project concurrency",
-      "ClickHouse logs & searchable deployment history",
+      "Real-time build logs stored & streamed from Supabase",
       "Supabase DB for scalable metadata storage"
     ],
     "demo": "https://deploy-now-lime.vercel.app/",
